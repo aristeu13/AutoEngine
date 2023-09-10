@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "configbackend"
+version = "0.1.0"
+description = ""
+authors = ["Aristeu <aristeuneto13@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.1"
+gunicorn = "^21.2.0"
+uvicorn = {extras = ["standard"], version = "^0.23.2"}
+pydantic = "^2.3.0"
+pydantic-settings = "^2.0.3"
+sqlalchemy = "^2.0.20"
+psycopg2-binary = "^2.9.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
