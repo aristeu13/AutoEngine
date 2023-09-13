@@ -1,18 +1,16 @@
 from functools import lru_cache
-from pydantic_settings import BaseSettings
 from pydantic import ValidationError
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+
     database_url: str
     database_echo: bool = False
     database_pool_size: int = 20
 
     enable_swagger: bool = True
-
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
 
 
 @lru_cache  # https://fastapi.tiangolo.com/advanced/settings/#settings-in-a-dependency
