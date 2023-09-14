@@ -22,6 +22,7 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 from configbackend.core.orm import mapper_registry
+import configbackend.domains.policy.adapters.orm  # noqa
 
 target_metadata = mapper_registry.metadata
 
