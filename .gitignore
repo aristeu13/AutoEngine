@@ -28,4 +28,6 @@ venv
 # macOS
 .DS_Store
 
+coverage/
 
+lcov.info

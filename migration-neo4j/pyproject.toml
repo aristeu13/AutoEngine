@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "migration-neo4j"
+version = "1.0.14"
+description = ""
+authors = ["Aristeu <aristeuneto13@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "migration_neo4j" }]
+
+[tool.poetry.scripts]
+migration-neo4j = "migration_neo4j.__main__:app"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = { extras = ["all"], version = "^0.9.0" }
+neo4j = "^5.12.0"
+python-dotenv = "^1.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+
+    # Don't complain about abstract methods, they aren't run:
+    "@(abc\\.)?abstractmethod",
+
+    # Don't complain about TYPE_CHECKING code, it isn't run:
+    "if TYPE_CHECKING:",
+]
+
+ignore_errors = true
+
+
+[tool.coverage.lcov]
+output = "coverage/lcov.info"
+# use this plugin in vscode to show coverage
+# https://github.com/markis/vscode-code-coverage
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
